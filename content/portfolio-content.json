@@ -1,0 +1,238 @@
+{
+  "site": {
+    "locale": "ru",
+    "domain": "sidikovsd.ru",
+    "title": "Содирхон Сидиков - Python Developer, AI и интеграции",
+    "description": "Python-разработчик из Махачкалы. Backend на FastAPI, AI-ассистенты, Telegram-боты, Bitrix24 и автоматизация бизнес-процессов.",
+    "visualDirection": "light-warm-editorial",
+    "usePersonalPhoto": false,
+    "brandMark": "SS"
+  },
+  "profile": {
+    "fullNameRu": "Содирхон Сидиков",
+    "fullNameEn": "Sodirkhon Sidikov",
+    "profession": "Python Developer (AI + Integrations)",
+    "specialization": "Backend-разработка, AI-интеграции и автоматизация бизнес-процессов",
+    "tagline": "Создаю backend-системы, AI-интеграции и автоматизацию, которые работают в реальном бизнесе.",
+    "shortTagline": "От бизнес-задачи до работающего production-сервиса.",
+    "location": "Махачкала, Республика Дагестан, Россия",
+    "timezone": "Europe/Moscow",
+    "availability": "open",
+    "availabilityText": "Открыт к удалённой работе и интересным коммерческим проектам",
+    "shortBio": "Python-разработчик с практическим опытом создания коммерческих систем в production. Специализируюсь на backend-разработке, AI-интеграциях, Telegram-ботах и автоматизации бизнес-процессов через Bitrix24 и внешние API.",
+    "philosophy": "Сначала разобраться в реальном процессе и ограничениях, затем выбрать архитектуру и только после этого писать код. Хорошая система должна быть понятной пользователю, предсказуемой в эксплуатации и измеримо полезной для бизнеса.",
+    "resumePath": "/content/resume/resume-sodirkhon-sidikov.pdf"
+  },
+  "contacts": {
+    "email": "sodirhonsidikov512@gmail.com",
+    "telegram": "https://t.me/sidikovsd",
+    "github": "https://github.com/Sidikov213",
+    "website": "https://sidikovsd.ru",
+    "linkedin": "https://linkedin.com/in/sidikov213",
+    "phone": null,
+    "preferred": "Telegram или email"
+  },
+  "stats": [
+    {
+      "value": "57+ млн ₽",
+      "label": "оборот через production-систему лояльности"
+    },
+    {
+      "value": "190",
+      "label": "активных клиентов в системе"
+    },
+    {
+      "value": "Топ-10",
+      "label": "финал федерального Альфа Хакатона"
+    },
+    {
+      "value": "4 человека",
+      "label": "команда под руководством на хакатоне"
+    }
+  ],
+  "skillGroups": [
+    {
+      "name": "Backend",
+      "items": ["Python", "FastAPI", "Django", "Flask", "REST API", "Pydantic", "SQLAlchemy", "Alembic", "JWT", "Jinja2"]
+    },
+    {
+      "name": "AI / LLM",
+      "items": ["OpenAI API", "OpenRouter", "AI-ассистенты", "Telegram-боты", "Prompt design", "Business automation"]
+    },
+    {
+      "name": "Databases",
+      "items": ["PostgreSQL", "SQLite", "Schema design", "Migrations", "ORM"]
+    },
+    {
+      "name": "Frontend",
+      "items": ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Framer Motion"]
+    },
+    {
+      "name": "DevOps",
+      "items": ["Docker", "Docker Compose", "Linux VPS", "Nginx", "Uvicorn", "systemd", "HTTPS", "Pytest"]
+    },
+    {
+      "name": "Integrations",
+      "items": ["Bitrix24 API", "Bitrix24 webhooks", "Telegram Bot API", "Yandex Maps API", "SMS / OTP", "External REST APIs"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Фриланс",
+      "role": "Python Developer / Fullstack Developer",
+      "period": "2025 - настоящее время",
+      "location": "Удалённо",
+      "bullets": [
+        "Разработал production-систему лояльности с оборотом более 57 млн ₽ и базой из 190 активных клиентов.",
+        "Интегрировал Bitrix24 CRM в клиентские бизнес-процессы.",
+        "Разрабатывал Telegram-ботов и AI-функции на базе OpenAI/OpenRouter.",
+        "Разворачивал приложения на Linux VPS с использованием Nginx, Docker, Uvicorn и systemd."
+      ]
+    },
+    {
+      "company": "Альфа Хакатон",
+      "role": "Team Lead / Backend / AI",
+      "period": "2026",
+      "location": "Финал в Москве",
+      "bullets": [
+        "2-е место на отборочном этапе и выход в топ-10 федерального финала.",
+        "Руководство командой из четырёх человек.",
+        "Проектирование единого backend для сайта, мобильного приложения и Telegram-бота.",
+        "Презентация решения перед жюри."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Колледж Дагестанского государственного университета",
+      "program": "Информационные системы и программирование",
+      "period": "2022-2026",
+      "result": "Красный диплом",
+      "project": "Проектирование и разработка базы данных для спортивного клуба «Атлетика»"
+    }
+  ],
+  "services": [
+    {
+      "slug": "backend-api",
+      "title": "Backend-разработка и REST API",
+      "description": "Серверная часть веб-приложений, бизнес-логика, базы данных и защищённые API.",
+      "price": "По запросу",
+      "duration": "После оценки задачи"
+    },
+    {
+      "slug": "business-automation",
+      "title": "Автоматизация бизнеса и Bitrix24",
+      "description": "Интеграция CRM с внешними сервисами, уведомления, внутренние инструменты и административные панели.",
+      "price": "По запросу",
+      "duration": "После аудита процесса"
+    },
+    {
+      "slug": "ai-telegram",
+      "title": "AI-ассистенты и Telegram-боты",
+      "description": "AI-боты с контекстом, сценариями, шаблонами, backend и интеграциями.",
+      "price": "По запросу",
+      "duration": "После оценки сценариев"
+    },
+    {
+      "slug": "fullstack-mvp",
+      "title": "Fullstack MVP и административные панели",
+      "description": "Веб-продукт от интерфейса до backend, базы данных и deployment-инструкции.",
+      "price": "По запросу",
+      "duration": "После оценки объёма"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "loyalty-system",
+      "title": "Production-система лояльности",
+      "category": "Backend / автоматизация бизнеса",
+      "year": "2025-2026",
+      "status": "production",
+      "featured": true,
+      "role": "Backend Developer, интеграции, deployment и поддержка",
+      "summary": "Production-система лояльности для B2B/B2C-клиентов с интеграцией Bitrix24, бонусным балансом, клиентским кабинетом и административной панелью.",
+      "stack": ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "Jinja2", "Bitrix24 API"],
+      "results": ["57+ млн ₽ оборота", "190 активных клиентов", "Полный цикл разработки и поддержки"],
+      "github": "https://github.com/Sidikov213/loyalty_system",
+      "live": "https://focushouse-loyalt.ru",
+      "cover": null,
+      "publishClientName": false
+    },
+    {
+      "slug": "installation-map",
+      "title": "Карта монтажей с Bitrix24 и Яндекс.Картами",
+      "category": "Backend / CRM integration",
+      "year": "2026",
+      "status": "production",
+      "featured": true,
+      "role": "Full-cycle Developer",
+      "summary": "Внутренний сервис для отображения монтажных объектов на Яндекс.Карте с синхронизацией сделок из Bitrix24.",
+      "stack": ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "Bitrix24 API", "Yandex Maps API"],
+      "results": ["Развёрнут на production-домене", "Защищённый доступ", "Обработка адресов без координат"],
+      "github": "https://github.com/Sidikov213/karta_bitrix_integration",
+      "live": "https://mistroy-karta.com/login",
+      "cover": null,
+      "publishClientName": false
+    },
+    {
+      "slug": "smile-ai",
+      "title": "Smile AI - бизнес-ассистент",
+      "category": "AI / Telegram / хакатон",
+      "year": "2026",
+      "status": "hackathon-finalist",
+      "featured": true,
+      "role": "Team Lead / Backend / AI",
+      "summary": "AI-ассистент для малого бизнеса: мобильное приложение, Telegram-бот и сайт с единым backend и синхронизацией диалогов.",
+      "stack": ["Python", "aiogram", "FastAPI", "OpenAI", "OpenRouter", "Groq", "Docker"],
+      "results": ["2-е место на отборе", "Топ-10 федерального финала", "Команда из 4 человек"],
+      "github": "https://github.com/Sidikov213/TG_bot_alfha",
+      "live": "https://t.me/alphacapillot_bot",
+      "cover": null
+    },
+    {
+      "slug": "athletica",
+      "title": "Атлетика - система управления спортивным клубом",
+      "category": "Fullstack / дипломный проект",
+      "year": "2026",
+      "status": "completed-educational",
+      "featured": false,
+      "role": "Fullstack Developer / Database Designer",
+      "summary": "Информационная система для клиентов, тренеров, абонементов, тренировок, бронирований, платежей и аналитики.",
+      "stack": ["FastAPI", "React", "TypeScript", "SQLAlchemy", "SQLite", "JWT"],
+      "results": ["Завершённый дипломный проект", "Красный диплом"],
+      "github": null,
+      "live": null,
+      "cover": null
+    },
+    {
+      "slug": "hair-lab",
+      "title": "Hair Lab - онлайн-бронирование барбершопа",
+      "category": "Fullstack / portfolio project",
+      "year": "2026",
+      "status": "completed-demo",
+      "featured": false,
+      "role": "Fullstack Developer",
+      "summary": "Fullstack-приложение для онлайн-записи с авторизацией, проверкой свободных слотов, личным кабинетом и админкой.",
+      "stack": ["Next.js", "React", "TypeScript", "FastAPI", "SQLAlchemy", "JWT", "SQLite"],
+      "results": ["Готовая демонстрационная система", "Документированный REST API"],
+      "github": "https://github.com/Sidikov213/Barbershop_hairlab",
+      "live": null,
+      "cover": "/content/projects/hair-lab/portfolio-card.png"
+    },
+    {
+      "slug": "url-shortener",
+      "title": "URL Shortener",
+      "category": "Backend / microservice",
+      "year": "2026",
+      "status": "completed-portfolio",
+      "featured": false,
+      "role": "Backend Developer",
+      "summary": "Микросервис сокращения ссылок с редиректами, статистикой, миграциями, тестами и Docker Compose.",
+      "stack": ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "Pytest", "Docker"],
+      "results": ["Production-подобная архитектура", "Автоматизированные тесты", "Docker Compose"],
+      "github": "https://github.com/Sidikov213/url-shortener-service",
+      "live": null,
+      "cover": null
+    }
+  ]
+}
