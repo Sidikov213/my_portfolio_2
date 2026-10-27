@@ -1664,6 +1664,25 @@ html.dark .project-case > * {
   color: var(--admin-accent);
 }
 
+.admin-nav__label {
+  flex: 1;
+}
+
+.admin-nav__badge {
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--admin-accent);
+  color: white;
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 0.68rem;
+  line-height: 1;
+}
+
 .admin-side__foot {
   margin-top: auto;
   display: grid;
@@ -2120,6 +2139,265 @@ html.dark .project-case > * {
   border: 1px solid color-mix(in srgb, var(--admin-ink) 16%, transparent);
   background: white;
   color: var(--admin-ink);
+}
+
+.admin-inbox {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.2fr);
+  gap: 1rem;
+  min-height: 68vh;
+  align-items: stretch;
+}
+
+.admin-inbox__list,
+.admin-inbox__detail {
+  min-width: 0;
+}
+
+.admin-inbox__list {
+  border: 1px solid color-mix(in srgb, var(--admin-ink) 10%, transparent);
+  background: color-mix(in srgb, var(--admin-surface) 78%, white);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.admin-inbox__search {
+  display: block;
+  padding: 0.85rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--admin-ink) 8%, transparent);
+}
+
+.admin-inbox__search input {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--admin-ink) 14%, transparent);
+  background: color-mix(in srgb, var(--admin-paper) 70%, white);
+  color: var(--admin-ink);
+  outline: none;
+}
+
+.admin-inbox__search input:focus {
+  border-color: color-mix(in srgb, var(--admin-accent) 55%, transparent);
+}
+
+.admin-inbox__items {
+  overflow: auto;
+  flex: 1;
+}
+
+.admin-inbox__item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 8px 1fr;
+  gap: 0.75rem;
+  padding: 0.95rem 1rem;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--admin-ink) 8%, transparent);
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-inbox__item:hover,
+.admin-inbox__item.is-active {
+  background: color-mix(in srgb, var(--admin-paper) 62%, white);
+}
+
+.admin-inbox__item.is-unseen strong {
+  color: var(--admin-ink);
+}
+
+.admin-inbox__item.is-unseen .admin-inbox__item-meta {
+  color: color-mix(in srgb, var(--admin-ink) 68%, transparent);
+}
+
+.admin-inbox__prio {
+  width: 8px;
+  border-radius: 999px;
+  margin-top: 0.25rem;
+  background: color-mix(in srgb, var(--admin-ink) 18%, transparent);
+}
+
+.admin-inbox__prio.is-hot {
+  background: var(--admin-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--admin-accent) 18%, transparent);
+}
+
+.admin-inbox__prio.is-low {
+  background: color-mix(in srgb, var(--admin-ink) 28%, transparent);
+}
+
+.admin-inbox__item-main {
+  display: grid;
+  gap: 0.28rem;
+  min-width: 0;
+}
+
+.admin-inbox__item-top,
+.admin-inbox__item-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.admin-inbox__item-top strong {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-size: 0.95rem;
+}
+
+.admin-inbox__item-top span,
+.admin-inbox__item-meta,
+.admin-inbox__item-bottom span:last-child {
+  font-size: 0.75rem;
+  color: var(--admin-mute);
+}
+
+.admin-inbox__item-meta {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-inbox__detail {
+  padding: 0;
+  overflow: auto;
+}
+
+.admin-inbox__detail-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.15rem 1.2rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--admin-ink) 8%, transparent);
+}
+
+.admin-inbox__detail-head h2 {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-size: 1.55rem;
+  letter-spacing: -0.03em;
+}
+
+.admin-inbox__detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: flex-end;
+}
+
+.admin-inbox__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  padding: 1.15rem 1.2rem;
+}
+
+.admin-inbox__grid article {
+  padding: 0.85rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--admin-ink) 9%, transparent);
+  background: color-mix(in srgb, var(--admin-paper) 55%, white);
+}
+
+.admin-inbox__full {
+  grid-column: 1 / -1;
+}
+
+.admin-inbox__label {
+  margin-bottom: 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--admin-mute);
+}
+
+.admin-inbox__desc {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.admin-inbox__controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  padding: 0 1.2rem 1rem;
+}
+
+.admin-inbox__controls label,
+.admin-inbox__notes {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.admin-inbox__controls span,
+.admin-inbox__notes span {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--admin-mute);
+}
+
+.admin-inbox__controls select,
+.admin-inbox__notes textarea {
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--admin-ink) 14%, transparent);
+  background: white;
+  color: var(--admin-ink);
+  padding: 0.7rem 0.8rem;
+  outline: none;
+}
+
+.admin-inbox__controls select {
+  min-height: 2.55rem;
+}
+
+.admin-inbox__notes {
+  padding: 0 1.2rem 1.25rem;
+}
+
+.admin-inbox__notes textarea {
+  resize: vertical;
+  min-height: 8rem;
+  line-height: 1.5;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 980px) {
+  .admin-inbox {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .admin-inbox__list {
+    max-height: 42vh;
+  }
+
+  .admin-inbox__detail-head,
+  .admin-inbox__controls {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-inbox__detail-head {
+    display: grid;
+  }
+
+  .admin-inbox__detail-actions {
+    justify-content: flex-start;
+  }
 }
 
 .admin-project-title {

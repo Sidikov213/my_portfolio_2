@@ -70,6 +70,9 @@ export type AdminLead = {
   budget: string;
   timeline: string;
   status: string;
+  notes: string;
+  priority: "hot" | "normal" | "low" | string;
+  is_seen: boolean;
   created_at: string | null;
   updated_at: string | null;
 };
@@ -142,6 +145,14 @@ export const updateLeadStatus = (id: number, status: string) =>
   adminFetch<AdminLead>(`/admin/leads/${id}`, {
     method: "PATCH",
     body: JSON.stringify({ status }),
+  });
+export const updateAdminLead = (
+  id: number,
+  payload: Partial<Pick<AdminLead, "status" | "notes" | "priority" | "is_seen">>,
+) =>
+  adminFetch<AdminLead>(`/admin/leads/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(payload),
   });
 export const deleteLead = (id: number) =>
   adminFetch<void>(`/admin/leads/${id}`, { method: "DELETE" });

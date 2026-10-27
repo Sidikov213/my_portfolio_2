@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import html
 import logging
 from dataclasses import dataclass
 
@@ -21,6 +22,10 @@ class LeadNotifyPayload:
     timeline: str = ""
 
 
+def _esc(value: str) -> str:
+    return html.escape(value or "", quote=False)
+
+
 async def notify_new_lead(lead: LeadNotifyPayload) -> None:
     settings = get_settings()
     token = (settings.telegram_bot_token or "").strip()
@@ -31,13 +36,13 @@ async def notify_new_lead(lead: LeadNotifyPayload) -> None:
 
     text = (
         "<b>Новая заявка с сайта</b>\n\n"
-        f"<b>Имя:</b> {lead.name}\n"
-        f"<b>Контакт:</b> {lead.contact}\n"
-        f"<b>Компания:</b> {lead.company or '—'}\n"
-        f"<b>Тип:</b> {lead.project_type or '—'}\n"
-        f"<b>Бюджет:</b> {lead.budget or '—'}\n"
-        f"<b>Сроки:</b> {lead.timeline or '—'}\n\n"
-        f"<b>Описание:</b>\n{lead.description or '—'}"
+        f"<b>Имя:</b> {_esc(lead.name)}\n"
+        f"<b>Контакт:</b> {_esc(lead.contact)}\n"
+        f"<b>Компания:</b> {_esc(lead.company) or '—'}\n"
+        f"<b>Тип:</b> {_esc(lead.project_type) or '—'}\n"
+        f"<b>Бюджет:</b> {_esc(lead.budget) or '—'}\n"
+        f"<b>Сроки:</b> {_esc(lead.timeline) or '—'}\n\n"
+        f"<b>Описание:</b>\n{_esc(lead.description) or '—'}"
     )
 
     url = f"https://api.telegram.org/bot{token}/sendMessage"

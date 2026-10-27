@@ -42,6 +42,30 @@ async def ensure_project_columns() -> None:
         await conn.run_sync(_migrate)
 
 
+async def ensure_lead_columns() -> None:
+    def _migrate(sync_conn) -> None:
+        inspector = inspect(sync_conn)
+        if "leads" not in inspector.get_table_names():
+            return
+        cols = {column["name"] for column in inspector.get_columns("leads")}
+        statements: list[str] = []
+        if "notes" not in cols:
+            statements.append("ALTER TABLE leads ADD COLUMN notes TEXT DEFAULT ''")
+        if "priority" not in cols:
+            statements.append(
+                "ALTER TABLE leads ADD COLUMN priority VARCHAR(20) DEFAULT 'normal'"
+            )
+        if "is_seen" not in cols:
+            statements.append(
+                "ALTER TABLE leads ADD COLUMN is_seen BOOLEAN DEFAULT 0"
+            )
+        for statement in statements:
+            sync_conn.execute(text(statement))
+
+    async with engine.begin() as conn:
+        await conn.run_sync(_migrate)
+
+
 async def seed_admin_user() -> None:
     async with SessionLocal() as db:
         existing = (
@@ -262,6 +286,7 @@ async def lifespan(_: FastAPI):
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
     await ensure_project_columns()
+    await ensure_lead_columns()
     await seed_database()
     await seed_admin_user()
     yield

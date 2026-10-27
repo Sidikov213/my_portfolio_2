@@ -6,6 +6,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 import {
   clearAdminToken,
   getAdminMe,
+  getAdminStats,
   getAdminToken,
   type AdminUser,
 } from "@/lib/admin-api";
@@ -75,7 +76,7 @@ export function AdminAuthProvider({ children }: { children: ReactNode }) {
 
 const NAV = [
   { href: "/admin", label: "Обзор", exact: true },
-  { href: "/admin/leads", label: "Заявки" },
+  { href: "/admin/leads", label: "Заявки", badgeKey: "leads" as const },
   { href: "/admin/projects", label: "Проекты" },
   { href: "/admin/services", label: "Услуги" },
   { href: "/admin/profile", label: "Профиль" },
@@ -86,6 +87,26 @@ export function AdminShell({ children }: { children: ReactNode }) {
   const { user, loading, logout } = useAdminAuth();
   const pathname = usePathname();
   const isLogin = pathname === "/admin/login";
+  const [newLeads, setNewLeads] = useState(0);
+
+  useEffect(() => {
+    if (!user) return;
+    let cancelled = false;
+    async function pull() {
+      try {
+        const stats = await getAdminStats();
+        if (!cancelled) setNewLeads(stats.leads_new);
+      } catch {
+        // ignore badge errors
+      }
+    }
+    void pull();
+    const timer = window.setInterval(() => void pull(), 20000);
+    return () => {
+      cancelled = true;
+      window.clearInterval(timer);
+    };
+  }, [user, pathname]);
 
   if (isLogin) {
     return <>{children}</>;
@@ -120,6 +141,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
         <nav className="admin-nav" aria-label="Admin">
           {NAV.map((item, index) => {
             const active = item.exact ? pathname === item.href : pathname.startsWith(item.href);
+            const showBadge = item.badgeKey === "leads" && newLeads > 0;
             return (
               <Link
                 key={item.href}
@@ -127,7 +149,8 @@ export function AdminShell({ children }: { children: ReactNode }) {
                 className={`admin-nav__link ${active ? "is-active" : ""}`}
               >
                 <span className="admin-nav__index">0{index + 1}</span>
-                <span>{item.label}</span>
+                <span className="admin-nav__label">{item.label}</span>
+                {showBadge ? <span className="admin-nav__badge">{newLeads}</span> : null}
               </Link>
             );
           })}

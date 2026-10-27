@@ -29,11 +29,22 @@ class LeadAdminOut(BaseModel):
     budget: str
     timeline: str
     status: str
+    notes: str = ""
+    priority: str = "normal"
+    is_seen: bool = False
     created_at: datetime | None = None
     updated_at: datetime | None = None
 
     model_config = {"from_attributes": True}
 
 
-class LeadStatusUpdate(BaseModel):
-    status: str = Field(pattern="^(new|in_progress|done|archived)$")
+class LeadAdminUpdate(BaseModel):
+    status: str | None = Field(default=None, pattern="^(new|in_progress|done|archived)$")
+    notes: str | None = None
+    priority: str | None = Field(default=None, pattern="^(hot|normal|low)$")
+    is_seen: bool | None = None
+
+
+# backward-compatible alias used nowhere after update, keep for clarity
+class LeadStatusUpdate(LeadAdminUpdate):
+    pass

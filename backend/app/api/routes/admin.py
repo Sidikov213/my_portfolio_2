@@ -19,7 +19,7 @@ from app.schemas.auth import (
     ServiceAdminOut,
     ServiceAdminWrite,
 )
-from app.schemas.lead import LeadAdminOut, LeadStatusUpdate
+from app.schemas.lead import LeadAdminOut, LeadAdminUpdate
 from app.schemas.project_admin import (
     CategoryAdminOut,
     ProjectAdminOut,
@@ -145,16 +145,18 @@ async def list_leads(
 
 
 @router.patch("/leads/{lead_id}", response_model=LeadAdminOut)
-async def update_lead_status(
+async def update_lead(
     lead_id: int,
-    payload: LeadStatusUpdate,
+    payload: LeadAdminUpdate,
     _: User = Depends(get_current_admin),
     db: AsyncSession = Depends(get_db),
 ) -> Lead:
     lead = (await db.execute(select(Lead).where(Lead.id == lead_id))).scalar_one_or_none()
     if not lead:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Lead not found")
-    lead.status = payload.status
+    data = payload.model_dump(exclude_unset=True)
+    for key, value in data.items():
+        setattr(lead, key, value)
     await db.commit()
     await db.refresh(lead)
     return lead
